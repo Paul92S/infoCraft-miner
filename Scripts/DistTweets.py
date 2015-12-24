@@ -1,5 +1,6 @@
 import twitter
 import json
+import cgi, cgitb
 
 ckey = 'Xw58AcfLS388NW2bGqLioOeo3'
 csecret = 'xdeoe5rNRFaySGQogn1htMzZkX3eydeTeU366bTp3TlHyce7Gz'
@@ -11,7 +12,9 @@ auth = twitter.oauth.OAuth(atoken, asecret, ckey, csecret)
 twitter_api = twitter.Twitter(auth=auth)
 
 #insert the button listener form to search 
-q = '#UFC'
+
+form = cgi.FieldStorage()
+q= form.getvalue('searchStr') #Collecting Value from form name='searchStr'
 count = 100
 
 search_results = twitter_api.search.tweets(q=q, count=count) 

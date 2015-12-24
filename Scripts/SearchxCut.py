@@ -31,4 +31,4 @@ class listener(StreamListener):
 auth = OAuthHandler(ckey, csecret)
 auth.set_access_token(atoken, asecret)        
 twitterStream = Stream(auth, listener())
-twitterStream.filter(track=["Conor McGregor"])          
+twitterStream.filter(track=["graph theory"])          

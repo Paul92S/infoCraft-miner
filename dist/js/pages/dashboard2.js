@@ -99,7 +99,7 @@ $(function () {
       value: 700,
       color: "#f56954",
       highlight: "#f56954",
-      label: "Chrome"
+      label: "iOS"
     },
     {
       value: 500,

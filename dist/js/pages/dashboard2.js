@@ -96,7 +96,7 @@ $(function () {
   var pieChart = new Chart(pieChartCanvas);
   var PieData = [
     {
-      value: 700,
+      value: 300,
       color: "#f56954",
       highlight: "#f56954",
       label: "iOS"

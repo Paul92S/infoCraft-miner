@@ -14,7 +14,7 @@ twitter_api = twitter.Twitter(auth=auth)
 #insert the button listener form to search 
 
 form = cgi.FieldStorage()
-q= form.getvalue('searchStr') #Collecting Value from form name='searchStr'
+q= form.getvalue('searchID') #Collecting Value from form name='searchID'
 count = 100
 
 search_results = twitter_api.search.tweets(q=q, count=count) 

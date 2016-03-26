@@ -111,7 +111,7 @@
     </nav>
  
             </div><!-- /.col --> 
-        </div><!--/.row --> 
+        </div><!--/.row  --> 
         
     </div>
     <!-- /.container -->
@@ -119,8 +119,9 @@
     <div id="search">
     <button type="button" class="close">×</button>
     <form >
-        <input id="searchID" type="search" value="" placeholder="type keyword(s) here" />
-        <button type="submit" class="btn btn-primary">Search</button>
+        <input id="search_terms" type="search" autofocus="autofocus" placeholder="type keyword(s) here" />
+        <button id="search_button" class="btn btn-primary" 
+        onclick="location.href='engine.html'" value="Redirect">Search</button>
     </form>
 </div>
     
@@ -128,6 +129,8 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    
+    <script src="search_client.js"></script>
     
 
     <!-- Bootstrap Core JavaScript -->

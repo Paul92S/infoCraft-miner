@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 		// This URL is for illustration only
 		// You MUST change it to your server
 		$.ajax({
-			url: 'http://books.140dev.com/ebook_js/code/search_server.php?q=' + search_value,
+			url: 'search_server.php?q=' + search_value,
 			success: function(data){
 				
 				// Display the results
@@ -23,4 +23,5 @@ jQuery(document).ready(function($) {
 			}
 		})
 	})
+   
 });

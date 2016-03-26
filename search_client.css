@@ -1,12 +1,3 @@
-body {
-width:900px;
-margin:24px auto;
-}
-
-p,ul,li,h1,h2 {
-margin:0;
-padding:0;
-}
 
 #search_box {
 background:#f3f3f3;
@@ -15,10 +6,6 @@ width:500px;
 border:1px solid #bbb;
 }
 
-h1 {
-font-size:24px;
-margin-bottom:12px;
-}
 
 input[name=search_terms] {
 font-size:23px;

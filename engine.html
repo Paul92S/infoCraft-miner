@@ -19,6 +19,10 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    
+    <link rel="stylesheet" href="tweet.css" type="text/css">
+    
+    <link rel="stylesheet" href="search_client.css" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -109,14 +113,16 @@
           <!-- Sidebar user panel -->
           
           <!-- search form -->
-          <form action="#" method="get" class="sidebar-form">
+          <div id="search_box">
+          
             <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="New Search...">
+              <input  name="search_terms" class="form-control" placeholder="New Search...">
               <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                <button id="search_button" class="btn btn-flat"><i class="fa fa-search"></i></button>
               </span>
             </div>
-          </form>
+          
+          </div>
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
@@ -173,17 +179,7 @@
             <li class="header">TENDENCY UNDERSTANDING</li>
             <!-- Inteligence based system tabs here -->
             
-            <li>
-              <a href="#">
-                <i class="fa fa-comment-o"></i> <span>Confused/ Catatonic</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
             
-            <li>
-              <a href="#">
-                <i class="fa fa-exclamation"></i> <span>Exlaiming/ Stern</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
             
             <li>
               <a href="#">
@@ -203,43 +199,7 @@
               </a>
             </li>
             
-           
-            <li class="header">LANGUAGE DETECTED</li>
-            <li>
-              <a href="#">
-                <i class="fa fa-thumbs-down"></i> <span>English</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
-            
-            <li>
-              <a href="#">
-                <i class="fa fa-thumbs-down"></i> <span>Spanish</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
-            
-            <li>
-              <a href="#">
-                <i class="fa fa-thumbs-down"></i> <span>French</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
-            
-            <li>
-              <a href="#">
-                <i class="fa fa-thumbs-down"></i> <span>Dutch German</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
-            
-            <li>
-              <a href="#">
-                <i class="fa fa-thumbs-down"></i> <span>Italian</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
-            
-            <li>
-              <a href="#">
-                <i class="fa fa-thumbs-down"></i> <span>Portuguese</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
+          
             
             
              <li class="header">UTILITIES</li>
@@ -348,13 +308,13 @@
             <!-- General information -->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="callout callout-warning">
+                    <!--<div class="callout callout-warning">
                         
                         <h4>Important Information!</h4>
                         <p>Number of tweets loaded are up to (100) at a time and limited to every 15 minutes via the Twitter API.
                             Tweets can be loaded as far as the past 7 days. For a new optimized search please return to the landing page 
                             and choose another option. </p>
-                        </div>
+                        </div> -->
                     <div class="alert alert-info" role="alert">
                         <h4>Important Information!</h4>
                         Number of tweets loaded are up to (100) at a time and limited to every 15 minutes via the Twitter API.
@@ -628,8 +588,10 @@
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                   </div>
                 </div><!-- /.box-header -->
-                <div class="box-body">
+                <div class="box-body" id='search_results'>
                   
+                  
+                  <div ></div>
                   <!-- Here add elements to the DOM using Javascript (DOM_update) -->
                   
                   
@@ -848,5 +810,11 @@
     <script src="dist/js/pages/dashboard2.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
+    
+    <!-- Js for Search Request -->
+    <script src="search_client.js"></script>
+    
+    
+    
   </body>
 </html>

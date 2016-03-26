@@ -32,15 +32,25 @@ if (!empty($_GET['q'])) {
 		// Extract the tweets from the API response
 		$response = json_decode($connection->response['response'],true);
 		$tweet_data = $response['statuses']; 
+        
+        $file = 'data.json';
+        file_put_contents( 'data.json', json_encode($response)); 
+        
+        
+        //$fp = fopen('data.json', 'w');
+        //fwrite($fp, json_encode($response));
+        //fclose($fp);
 		
 		// Load the template for tweet display
 		$tweet_template= file_get_contents('tweet_template.html');
 		
 		// Load the library of tweet display functions
 		require 'display_lib.php';	
-		
+
 		// Create a stream of formatted tweets as HTML
 		$tweet_stream = '';
+        
+        
 		foreach($tweet_data as $tweet) {
 				
 			// Ignore any retweets
@@ -68,12 +78,17 @@ if (!empty($_GET['q'])) {
 				$tweet['retweet_count'],$tweet_html);			
 			
 			// Add the HTML for this tweet to the stream
+ 
 			$tweet_stream .= $tweet_html;
+   
 		}
-			
+	
 		// Pass the tweets HTML back to the Ajax request
 		print $tweet_stream;
-		
+        
+        
+        
+
 	// Handle errors from API request
 	} else {
 		if ($http_code == 429) {
@@ -86,5 +101,8 @@ if (!empty($_GET['q'])) {
 } else {
 	print 'No search terms found';
 }	
+
+
+
 
 ?>

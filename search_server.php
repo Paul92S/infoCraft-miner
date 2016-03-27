@@ -9,6 +9,14 @@ if (!empty($_GET['q'])) {
 	
 	// Get the application OAuth tokens
 	require 'app_tokens.php';
+    
+    //get the datumbox api key
+    require 'config.php';
+    require 'lib/TwitterSentimentAnalysis.php';
+    
+    $TwitterSentimentAnalysis = new TwitterSentimentAnalysis(DATUMBOX_API_KEY,
+    TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,
+    TWITTER_ACCESS_KEY,TWITTER_ACCESS_SECRET);
 	
 	// Create an OAuth connection
 	require 'tmhOAuth.php';
@@ -21,26 +29,26 @@ if (!empty($_GET['q'])) {
 	
 	// Request the most recent 100 matching tweets
 	$http_code = $connection->request('GET',$connection->url('1.1/search/tweets'), 
-		    	array('q' => $search_terms,
+		$twitterSearchParams=array('q' => $search_terms,
 		    	'count' => 100,
 		    	'lang' => 'en',
 				'type' => 'recent'));
 
 	// Search was successful
 	if ($http_code == 200) {
-			
+
 		// Extract the tweets from the API response
-		$response = json_decode($connection->response['response'],true);
+		$response = json_decode($connection->response['response'],true);        
+     
 		$tweet_data = $response['statuses']; 
         
+         //Response to be sent to Sentiment API 
+        $response= $TwitterSentimentAnalysis->sentimentAnalysis($twitterSearchParams);  
+     
+        //Sending the Twitter API response(JSONP) direct to a local file
         $file = 'data.json';
         file_put_contents( 'data.json', json_encode($response)); 
-        
-        
-        //$fp = fopen('data.json', 'w');
-        //fwrite($fp, json_encode($response));
-        //fclose($fp);
-		
+
 		// Load the template for tweet display
 		$tweet_template= file_get_contents('tweet_template.html');
 		
@@ -52,7 +60,7 @@ if (!empty($_GET['q'])) {
         
         
 		foreach($tweet_data as $tweet) {
-				
+                
 			// Ignore any retweets
 			if (isset($tweet['retweeted_status'])) {
 				continue;
@@ -76,6 +84,20 @@ if (!empty($_GET['q'])) {
 				twitter_time($tweet['created_at']),$tweet_html);
 			$tweet_html = str_replace('[retweet_count]',
 				$tweet['retweet_count'],$tweet_html);			
+                
+                
+                   //if loop to change text color    
+          /*  $color=NULL;
+            if($tweet['sentiment']=='positive'){            
+                $color='#00FF00';
+            }
+            else if($tweet['sentiment']=='negative'){
+                $color='#FF0000';
+            }
+            else if($tweet['sentiment']=='neutral'){
+                $color='#FFFFFF';
+            }
+			*/	
 			
 			// Add the HTML for this tweet to the stream
  
@@ -85,9 +107,6 @@ if (!empty($_GET['q'])) {
 	
 		// Pass the tweets HTML back to the Ajax request
 		print $tweet_stream;
-        
-        
-        
 
 	// Handle errors from API request
 	} else {
@@ -101,8 +120,4 @@ if (!empty($_GET['q'])) {
 } else {
 	print 'No search terms found';
 }	
-
-
-
-
 ?>

@@ -30,7 +30,7 @@ if (!empty($_GET['q'])) {
 	// Request the most recent 100 matching tweets
 	$http_code = $connection->request('GET',$connection->url('1.1/search/tweets'), 
 		$twitterSearchParams=array('q' => $search_terms,
-		    	'count' => 100,
+		    	'count' => 25,
 		    	'lang' => 'en',
 				'type' => 'recent'));
 
@@ -44,6 +44,8 @@ if (!empty($_GET['q'])) {
         
          //Response to be sent to Sentiment API 
         $response= $TwitterSentimentAnalysis->sentimentAnalysis($twitterSearchParams);  
+        
+        
      
         //Sending the Twitter API response(JSONP) direct to a local file
         $file = 'data.json';
@@ -83,21 +85,10 @@ if (!empty($_GET['q'])) {
 			$tweet_html = str_replace('[created_at]',
 				twitter_time($tweet['created_at']),$tweet_html);
 			$tweet_html = str_replace('[retweet_count]',
-				$tweet['retweet_count'],$tweet_html);			
+				$tweet['retweet_count'],$tweet_html);
+            //$tweet_html = str_replace('[sentiment]',
+				//$tweet['sentiment'],$tweet_html);			
                 
-                
-                   //if loop to change text color    
-          /*  $color=NULL;
-            if($tweet['sentiment']=='positive'){            
-                $color='#00FF00';
-            }
-            else if($tweet['sentiment']=='negative'){
-                $color='#FF0000';
-            }
-            else if($tweet['sentiment']=='neutral'){
-                $color='#FFFFFF';
-            }
-			*/	
 			
 			// Add the HTML for this tweet to the stream
  

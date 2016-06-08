@@ -42,13 +42,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="engine.html">infoCraft Miner</a>
+                <a class="navbar-brand" href="engine.html">SocialLTE</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#"></a>
                     </li>
                     <li>
                         <a href="#"class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>                     
@@ -68,48 +68,22 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <h1>Social LTE - Twitter Search and Analytics Tool</h1>
-                <p>Using Twitters API to take vasts amounts of metadata on searchs controlled the user.  
+                <h1 style="color:#f2f2f2;">Social LTE - Twitter Search and Analytics Tool</h1>
+                <p style="color:#f2f2f2;">Using Twitters API to take vasts amounts of metadata on searchs controlled the user.  
                     Visually and dynamically presented </p>
             </div>
         </div>
         <!-- /.row -->
         
+        
+        
         <div class="row"> 
             <div class="col-md-12">
-                
-                <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               <!-- <ul class="nav navbar-nav">                  
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select for Search Type <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Tweet</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">User</a></li>
-                        </ul>
-                    </li>
-                </ul> -->
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#search">Search</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
- 
+               
+                <a href="#search"><button type="button" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Search
+                </button> </a>
+         
             </div><!-- /.col --> 
         </div><!--/.row  --> 
         
@@ -119,9 +93,10 @@
     <div id="search">
     <button type="button" class="close">×</button>
     <form >
-        <input id="search_terms" type="search" autofocus="autofocus" placeholder="type keyword(s) here" />
-        <button id="search_button" class="btn btn-primary" 
-        onclick="location.href='engine.html'" value="Redirect">Search</button>
+        <input id="search_terms" type="search" autofocus="autofocus" 
+        placeholder="type keyword(s) here" name="searchTerms"/>
+         <button id="search_button" class="btn btn-primary" formaction="engine.html" formmethod="GET"
+         value="Redirect">Search</button>
     </form>
 </div>
     
@@ -130,8 +105,7 @@
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     
-    <script src="search_client.js"></script>
-    
+    <!-- <script src="search_client.js"></script> -->
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>

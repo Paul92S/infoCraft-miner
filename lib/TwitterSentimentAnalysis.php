@@ -59,6 +59,9 @@ class TwitterSentimentAnalysis {
         unset($Client);
         
         return $tweets;
+        
+     
+        
     }
     
     protected function findSentiment($tweets) {
@@ -76,10 +79,31 @@ class TwitterSentimentAnalysis {
                         'text'=>$tweet['text'],
                         'url'=>'https://twitter.com/'.$tweet['user']['name'].'/status/'.$tweet['id_str'],
                         
+                        //added fields for JSON for data analytics and visuals
+                        'source'=>$tweet['source'],
+                        'entities'=>$tweet['entities'],
+                        'created_at'=>$tweet['created_at'],
+                        'retweet_count'=>$tweet['retweet_count'],
+                        
+                        
+                        'location'=>(isset($tweet['location'])),
+                        
+                        
+                        //Needs a nested statement for Undefined index:
+                        'verified'=>(isset($tweet['verified'])),
+
+                        //Needs a nested statment for Undefined index:   
+                        'user_mentions'=>(isset($tweet['user_mentions'])),
+                        //Add the sentiment to the jsonp object 
                         'sentiment'=>$sentiment,
                     );
                 }
             }
+            
+            //Put the tweet into the html template please :( 
+            
+            
+            
             
         }
         

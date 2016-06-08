@@ -2,13 +2,13 @@
 #search_box {
 background:#f3f3f3;
 padding:25px;
-width:500px;
+width:auto;
 border:1px solid #bbb;
 }
 
 
 input[name=search_terms] {
-font-size:23px;
+font-size:14px;
 padding:6px;
 float:left;
 margin-right:16px;
@@ -20,11 +20,12 @@ background-color:#019AD2;
 border-radius:9px;
 border:1px solid #057ED0;
 color:#fff;
-font-size:24px;
+font-size:16px;
 font-weight:700;
 padding:6px 24px;
 text-shadow:1px 1px 0 #333;
 cursor:pointer;
+height: 34px;
 }
 
 .search_button:hover {
@@ -37,8 +38,15 @@ top:1px;
 }
 
 #search_results{
-    display: inline-block;
+    display: inherit;
 	width:600px;
 	margin-top:12px;
+    margin-left: 5px;
 }
 
+#loading{
+    
+    font-size: 24px;
+    font-weight: bolder;
+    
+}

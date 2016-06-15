@@ -88,8 +88,7 @@ if (!empty($_GET['q'])) {
 				$tweet['retweet_count'],$tweet_html);
             //$tweet_html = str_replace('[sentiment]',
 				//$tweet['sentiment'],$tweet_html);			
-                
-			
+
 			// Add the HTML for this tweet to the stream
  
 			$tweet_stream .= $tweet_html;

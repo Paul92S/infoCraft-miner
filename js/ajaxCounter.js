@@ -206,6 +206,12 @@ $.ajax({
                        
                        
                    })
+
+          $(document).on('DOMNodeInserted', function(e) {
+                if (e.target.id == 'titleA') {
+                //element with #someID was inserted.
+                }//end if target id
+            })//end of DOMNodeInserted
             
             
         },      
